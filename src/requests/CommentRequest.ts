@@ -13,11 +13,11 @@ export async function addComment(comment: IComment) {
         method: 'POST',
         body: JSON.stringify(comment),
         headers: {
-            "Content:type": "application/json; charset=UTF-8;"
-        },
+            "Content-type": "application/json; charset=UTF-8"
+        }
     });
     if(!response.ok) throw new Error(`Failed to add comment.`);
-    return await response.status;
+    return await response.json();
 }
 
 export async function removeComment(id: number) {
@@ -29,13 +29,14 @@ export async function removeComment(id: number) {
 }
 
 export async function updateComment(comment: IComment) {
-    const response = await fetch(`${URL}/${comment.id}`, {
+    const response = await fetch(`${URL}/${comment.id}`,
+    {
         method: 'PUT',
         body: JSON.stringify(comment),
         headers: {
-            "Content:type": "application/json; charset=UTF-8;"
-        },
+            "Content-type": "application/json; charset=UTF-8"
+        }
     });
     if(!response.ok) throw new Error(`Failed to update comment.`);
-    return await response.status;
+    return await response.json();
 }
