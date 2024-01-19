@@ -9,7 +9,7 @@ export default interface IUser {
     company: UserCompany;
 }
 
-interface UserAddress {
+export interface UserAddress {
     street: string;
     suite: string;
     city: string;
@@ -17,12 +17,12 @@ interface UserAddress {
     geo: UserAddressGeo;
 }
 
-interface UserAddressGeo {
+export interface UserAddressGeo {
     lat: string;
     lng: string;
 }
 
-interface UserCompany {
+export interface UserCompany {
     name: string;
     catchPhrase: string;
     bs: string;

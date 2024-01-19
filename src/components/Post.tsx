@@ -1,4 +1,4 @@
-import ProfilePicture from '../assets/avatar.png';
+import ProfilePicture from '../assets/avatar.jpg';
 import Comments from './Comments';
 import {getUserById} from '../requests/UserRequest'
 import { useEffect, useState } from 'react';

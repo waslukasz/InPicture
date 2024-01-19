@@ -7,7 +7,7 @@ export default function Comments({postId}: {postId: number}) {
     const [comments, setComments] = useState<IComment[]>([]);
     const [isUpdated, setIsUpdated] = useState<boolean>(true);
     const [isFetching, setIsFetching] = useState<boolean>(false);
-    const [commentsHidden, setCommentsHidden] = useState<boolean>(false);
+    const [commentsHidden, setCommentsHidden] = useState<boolean>(true);
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     
     useEffect(() => {
@@ -39,6 +39,7 @@ export default function Comments({postId}: {postId: number}) {
         const result = await addComment(newComment);
         let newComments = comments;
         newComments.push(result);
+        textAreaRef.current!.value = '';
         setComments(newComments);
         setIsUpdated(false);
     }
