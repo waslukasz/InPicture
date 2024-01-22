@@ -10,7 +10,6 @@ export default function Comment({data}: {data: IComment}) {
     const [isDeleted, setIsDeleted] = useState<boolean>(false);
     const [currentData, setCurrentData] = useState<IComment>(data);
 
-
     const textAreaRef = useRef<HTMLTextAreaElement>(null);
     const [textAreaHeight, setTextAreaHeight] = useState("");
     const handleTextAreaHeight = (e: React.ChangeEvent<HTMLTextAreaElement>) => {

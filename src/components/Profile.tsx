@@ -6,9 +6,13 @@ import { getUserById } from '../requests/UserRequest'
 import ProfileBucketList from './ProfileBucketList';
 import ProfilePosts from './ProfilePosts';
 import ProfileAlbums from './ProfileAlbums';
+import { useParams } from 'react-router-dom';
 
 
 export default function Profile() {
+    const params = useParams<string>();
+
+
     const [user, setUser] = useState<IUser>();
     const [selected, setSelected] = useState<number>(0);
     const [isFetching, setIsFetching] = useState<boolean>(false);
@@ -17,7 +21,7 @@ export default function Profile() {
         async function fetchUser() {
             setIsFetching(true);
             try {
-                const user = await getUserById(1);
+                const user = await getUserById(parseInt(params.id!));
                 setUser(user);
             } catch (error) {}
             setIsFetching(false);

@@ -19,6 +19,7 @@ export default function Comments({postId}: {postId: number}) {
             } catch (error) {}
             setIsFetching(false);
         }
+
         fetchAllComments();
     }, [])
 
