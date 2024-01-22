@@ -3,7 +3,7 @@ import Header from './components/Header'
 import Feed from './components/Feed'
 import Profile from './components/Profile'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import DisplayAlbum from './components/DisplayAlbum'
+import Album from './components/Album'
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Feed />} />
               <Route path='/profile/:id' element={<Profile />}/>
-              <Route path='/album/:id' element={<DisplayAlbum />} />
+              <Route path='/album/:id' element={<Album />} />
             </Routes>
           </div>
       </BrowserRouter>

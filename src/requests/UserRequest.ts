@@ -13,9 +13,3 @@ export async function getUserById(id: number) : Promise<IUser> {
     if(!response.ok) throw new Error('Failed to fetch user by ID.');
     return await response.json();
 }
-
-export async function getUserByUsername(username: string) : Promise<IUser> {
-    const response = await fetch(`${URL}?username=${username}`);
-    if(!response.ok) throw new Error('Failed to fetch user by username.');
-    return await response.json();
-}

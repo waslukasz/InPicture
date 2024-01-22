@@ -25,7 +25,7 @@ export default function ProfileBucketList({userId}: {userId: number}) {
                 <div className="text-xl font-bold text-center">My bucket list:</div>
                 {!isFetching && todos.length > 0 && 
                 todos.map((todo) => 
-                <div className='h-3 flex items-center mb-1'>
+                <div key={todo.id} className='h-3 flex items-center mb-1'>
                     {todo.completed &&
                     <img className='h-3 mr-3' src={completedIcon} alt='Completed' style={{filter: 'invert(54%) sepia(62%) saturate(357%) hue-rotate(37deg) brightness(93%) contrast(80%)'}}></img>}
                     <div>{todo.title}</div>

@@ -47,7 +47,7 @@ export default function Comment({data}: {data: IComment}) {
             {!isDeleted && 
                 <div className="bg-slate-800 rounded-md p-2">
                 <div className='flex justify-between'>
-                    <div className="flex items-center gap-1 mb-1"> <span className="text-blue-500 text-sm">{data.email}</span></div>
+                    <div className="flex items-center gap-1 mb-1"><div className="text-blue-500 text-sm">{data.email}</div></div>
                     <div className='flex gap-1 h-5'>
                         {!isEditing && <img src={editIcon} alt='Edit' onClick={updateCommentHandler} className='cursor-pointer' style={{filter: 'invert(96%) sepia(57%) saturate(3768%) hue-rotate(169deg) brightness(76%) contrast(81%)'}}></img>}
                         {isEditing && <img src={acceptIcon} alt='Edit' onClick={updateCommentHandler} className='cursor-pointer' style={{filter: 'invert(54%) sepia(62%) saturate(357%) hue-rotate(37deg) brightness(93%) contrast(80%)'}}></img>}

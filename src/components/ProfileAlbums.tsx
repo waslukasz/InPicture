@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import IAlbum from '../interfaces/IAlbum';
 import { getAllAlbumsByUserId } from '../requests/AlbumRequest'
-import Album from './Album'
+import ProfileAlbum from './ProfileAlbum'
 
 export default function ProfileAlbums({userId}: {userId: number}) {
     const [albums, setAlbums] = useState<IAlbum[]>([]);
@@ -26,7 +26,7 @@ export default function ProfileAlbums({userId}: {userId: number}) {
                 <div className='flex flex-wrap items-end gap-3 justify-evenly'>
                     {!isFetching && albums.length > 0 && 
                     albums.map((album) => 
-                            <Album key={album.id} data={album} />
+                            <ProfileAlbum key={album.id} data={album} />
                         )
                     }
                 </div>
