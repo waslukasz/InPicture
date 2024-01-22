@@ -29,7 +29,7 @@ export default function Post({data}: {data: IPost}) {
                 <span className='text-blue-400 font-bold'>{isFetching && <p className="text-center">Loading...</p>} {!isFetching && <Link to={'/profile/' + data.userId}>{user.username}</Link>}</span>
             </div>
             <div>{data.body}</div>
-            <img className='rounded-md w-[512px]' src="https://via.placeholder.com/512/DDA77B" alt="photo" />
+            <img className='rounded-md w-[512px]' src="https://via.placeholder.com/512/272D2D" alt="photo" />
             <div>
                 <Comments postId={data.id}/>
             </div>

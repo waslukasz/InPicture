@@ -12,10 +12,13 @@ import { useParams } from 'react-router-dom';
 export default function Profile() {
     const params = useParams<string>();
 
-
     const [user, setUser] = useState<IUser>();
     const [selected, setSelected] = useState<number>(0);
     const [isFetching, setIsFetching] = useState<boolean>(false);
+
+    const select_default: string = 'bg-[#253C78] text-slate-400 transition-colors duration-300 p-5 w-1/4 text-center rounded-md font-bold cursor-pointer hover:bg-[#2B59C3] hover:text-white';
+
+    const select_selected: string = 'bg-[#2B59C3] underline text-white transition-colors duration-300 p-5 w-1/4 text-center rounded-md font-bold cursor-pointer';
 
     useEffect(() => {
         async function fetchUser() {
@@ -31,13 +34,13 @@ export default function Profile() {
 
     return (
         <div className='flex flex-col gap-3 mt-5 p-5 bg-slate-600 rounded-md w-[612px] items-center h-fit'>
-            <div className="flex items-center gap-2 justify-center">
+            <div className="flex items-center gap-2 justify-center mt-10">
                 <img src={ProfilePicture} alt="Avatar" className='w-24 rounded-full'/>
                 <div className='text-blue-400 font-bold text-2xl'>{!isFetching && <>{user?.username}</>}</div>
             </div>
             <div>
                 {!isFetching && 
-                    <div className='inline-flex flex-col items-center m-5 bg-slate-700 rounded-md p-3'>
+                    <div className='inline-flex flex-col items-center m-5 px-12 bg-slate-700 rounded-md p-3'>
                         <div><span className='font-bold'>Email:</span> {user?.email}</div>
                         <div><span className='font-bold'>Phone:</span> {user?.phone}</div>
                         <div><span className='font-bold'>Website:</span> {user?.website}</div>
@@ -48,9 +51,9 @@ export default function Profile() {
             
             <div className='flex flex-col bg-slate-900 w-full rounded-lg p-5'>
                 <div className='flex w-full justify-evenly mb-10'>
-                    <div onClick={() => setSelected(0)} className='bg-yellow-600 p-5 w-1/4 text-center rounded-md font-bold cursor-pointer hover:bg-yellow-200 hover:text-yellow-600'>Posts</div>
-                    <div onClick={() => setSelected(1)} className='bg-yellow-600 p-5 w-1/4 text-center rounded-md font-bold cursor-pointer hover:bg-yellow-200 hover:text-yellow-600'>Albums</div>
-                    <div onClick={() => setSelected(2)} className='bg-yellow-600 p-5 w-1/4 text-center rounded-md font-bold cursor-pointer hover:bg-yellow-200 hover:text-yellow-600'>Bucket list</div>
+                    <div onClick={() => setSelected(0)} className={selected == 0 ? select_selected : select_default}>Posts</div>
+                    <div onClick={() => setSelected(1)} className={selected == 1 ? select_selected : select_default}>Albums</div>
+                    <div onClick={() => setSelected(2)} className={selected == 2 ? select_selected : select_default}>Bucket list</div>
                 </div>
 
                 <div className='flex justify-center'>

@@ -50,7 +50,7 @@ export default function Comments({postId}: {postId: number}) {
             <div className='flex justify-between'><span>Comments: </span><span className='font-bold hover:cursor-pointer hover:underline' onClick={() => setCommentsHidden(!commentsHidden)}>{commentsHidden && <>Show comments</>} {!commentsHidden && <>Hide comments</>}</span></div>
             <div className='flex'>
                 <textarea ref={textAreaRef} className='w-3/4 rounded-md p-2 text-sm resize-none'/>
-                <button onClick={addCommentHandler} className='p-1 bg-[#2b2b2b] text-blue-500 m-1 rounded-lg font-bold hover:text-[#2b2b2b] hover:bg-blue-500 transition-colors'>Add comment</button>
+                <button onClick={addCommentHandler} className='bg-[#253C78] text-slate-400 transition-colors duration-300 p-1 w-1/4 text-center rounded-md font-bold cursor-pointer hover:bg-[#2B59C3] hover:text-white'>Add comment</button>
             </div>
             {!commentsHidden && 
             <>
